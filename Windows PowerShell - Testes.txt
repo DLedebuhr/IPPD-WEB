@@ -1,0 +1,170 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Post -Uri 'http://localhost:3000/tasks' -ContentType 'application/json' -Body '{"descricao":"Primos","inicio":1,"fim":100}'
+
+
+id        : 1
+descricao : Primos
+inicio    : 1
+fim       : 100
+status    : PENDENTE
+resultado :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/tasks/1'
+
+
+id        : 1
+descricao : Primos
+inicio    : 1
+fim       : 100
+status    : PENDENTE
+resultado :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Put -Uri 'http://localhost:3000/tasks/1' -ContentType 'application/json' -Body '{"descricao":"Primos ate 50","inicio":1,"fim":50,"status":"PENDENTE","resultado":null}'
+
+
+id        : 1
+descricao : Primos ate 50
+inicio    : 1
+fim       : 50
+status    : PENDENTE
+resultado :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Patch -Uri 'http://localhost:3000/tasks/1' -ContentType 'application/json' -Body '{"status":"CONCLUIDA"}'
+
+
+id        : 1
+descricao : Primos ate 50
+inicio    : 1
+fim       : 50
+status    : CONCLUIDA
+resultado :
+
+
+
+PS C:\Users\Dienifer Ledebuhr>
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Post -Uri 'http://localhost:3000/livros' -ContentType 'application/json' -Body '{"titulo":"Dom Casmurro","autor":"Machado de Assis","paginas":256}'
+
+
+id      : 1
+titulo  : Dom Casmurro
+autor   : Machado de Assis
+paginas : 256
+lido    : False
+nota    :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/livros/1'
+
+
+id      : 1
+titulo  : Dom Casmurro
+autor   : Machado de Assis
+paginas : 256
+lido    : False
+nota    :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Put -Uri 'http://localhost:3000/livros/1' -ContentType 'application/json' -Body '{"titulo":"Dom Casmurro","autor":"Machado de Assis","paginas":280,"lido":false,"nota":null}'
+
+
+id      : 1
+titulo  : Dom Casmurro
+autor   : Machado de Assis
+paginas : 280
+lido    : False
+nota    :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Patch -Uri 'http://localhost:3000/livros/1' -ContentType 'application/json' -Body '{"lido":true}'
+
+
+id      : 1
+titulo  : Dom Casmurro
+autor   : Machado de Assis
+paginas : 280
+lido    : True
+nota    :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/tasks/1'
+
+
+id        : 1
+descricao : Primos ate 50
+inicio    : 1
+fim       : 50
+status    : CONCLUIDA
+resultado :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/livros/1'
+
+
+id      : 1
+titulo  : Dom Casmurro
+autor   : Machado de Assis
+paginas : 280
+lido    : True
+nota    :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/tasks/1'
+
+
+id        : 1
+descricao : Primos ate 50
+inicio    : 1
+fim       : 50
+status    : CONCLUIDA
+resultado :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/livros/1'
+
+
+id      : 1
+titulo  : Dom Casmurro
+autor   : Machado de Assis
+paginas : 280
+lido    : True
+nota    :
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Delete -Uri 'http://localhost:3000/tasks/1'
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/tasks/1'
+Invoke-RestMethod : {"message":"Tarefa não encontrada","error":"Not Found","statusCode":404}
+No linha:1 caractere:1
++ Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/tasks/1'
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
+
+
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Delete -Uri 'http://localhost:3000/livros/1'
+
+PS C:\Users\Dienifer Ledebuhr> Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/livros/1'
+Invoke-RestMethod : {"message":"Livro não encontrado","error":"Not Found","statusCode":404}
+No linha:1 caractere:1
++ Invoke-RestMethod -Method Get -Uri 'http://localhost:3000/livros/1'
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
+PS C:\Users\Dienifer Ledebuhr>
